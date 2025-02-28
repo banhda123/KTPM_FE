@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet } from 'react-native';
 import Header from './components/Header';
 import SideMenu from './components/SideMenu';
 import CategoryButtons from './components/CategoryButtons';
@@ -7,6 +7,16 @@ import ProductList from './components/ProductList';
 import Carousel from './components/Carousel';
 
 const HomeScreen = () => {
+  const renderContent = () => {
+    return (
+      <>
+        <Carousel />
+        <CategoryButtons />
+        <ProductList />
+      </>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <Header />
@@ -17,11 +27,12 @@ const HomeScreen = () => {
         </View>
         
         {/* Nội dung chính bên phải */}
-        <ScrollView style={styles.content}>
-          <Carousel />
-          <CategoryButtons />
-          <ProductList />
-        </ScrollView>
+        <FlatList
+          style={styles.content}
+          data={[{ key: 'content' }]}
+          renderItem={renderContent}
+          showsVerticalScrollIndicator={false}
+        />
       </View>
     </View>
   );

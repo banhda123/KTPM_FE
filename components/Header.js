@@ -46,10 +46,7 @@ const Header = () => {
 
       {/* Phần dưới với tìm kiếm và danh mục */}
       <View style={styles.bottomHeader}>
-        <TouchableOpacity style={styles.categoryButton}>
-          <Text style={styles.categoryButtonText}>= Danh Sách Sản Phẩm</Text>
-        </TouchableOpacity>
-
+        
         <View style={styles.searchContainer}>
           <TextInput 
             style={styles.searchInput}
